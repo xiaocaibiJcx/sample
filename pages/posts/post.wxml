@@ -1,0 +1,28 @@
+<swiper indicator-dots="true" indicator-active-color="#fff" autoplay="true" interval="5000">
+  <swiper-item>
+    <image src='/images/wx_1.jpg'></image>
+  </swiper-item>
+  <swiper-item>
+    <image src='/images/wx_2.jpg'></image>
+  </swiper-item>
+  <swiper-item>
+    <image src='/images/wx_3.jpg'></image>
+  </swiper-item>
+</swiper>
+<block wx:for="{{content_key}}" wx:for-item="item">
+  <view class='post-container'>
+    <view class='post-author-date'>
+      <image class='post-author' src='{{item.avater}}'></image>
+      <text class='post-date'>{{item.date}}</text>
+    </view>
+    <text class='post-title'>{{item.title}}</text>
+    <image class='post-image' src='{{item.image}}'></image>
+    <text class='post-content'>{{item.content}}</text>
+    <view class='post-like'>
+      <image class='post-like-image' src='/images/icon/icon_star.png'></image>
+      <text class='post-like-font'>{{item.star_num}}</text>
+      <image class='post-like-image' src='/images/icon/icon_eyes.png'></image>
+      <text class='post-like-font'>{{item.commont_num}}</text>
+    </view>
+  </view>
+</block>
