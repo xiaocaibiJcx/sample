@@ -1,9 +1,37 @@
 {
   "pages": [
     "pages/welcome/welcome",
-    "pages/posts/post"
+    "pages/posts/post",
+    "pages/posts/post-detail/post-detail",
+    "pages/movies/movies",
+    "pages/movies/stars/stars",
+    "pages/movies/movie-list/movie-list",
+    "pages/movies/movie/movie"
+  ],
+  "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "#405f80",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/posts/post",
+        "iconPath": "/images/icon/icon_read.png",
+        "selectedIconPath": "/images/icon/icon_readBlue.png",
+        "text": "Read"
+      },
+      {
+        "pagePath": "pages/movies/movies",
+        "iconPath": "/images/icon/icon_movie.png",
+        "selectedIconPath": "/images/icon/icon_movieBlue.png",
+        "text": "Movie"
+      }
+    ]
+  },
+  "requiredBackgroundModes": [
+    "audio"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#b3d4bd"
+    "navigationBarBackgroundColor": "#405f80"
   }
 }

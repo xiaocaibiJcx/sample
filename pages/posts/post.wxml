@@ -1,28 +1,17 @@
-<swiper indicator-dots="true" indicator-active-color="#fff" autoplay="true" interval="5000">
+<import src="post-item/post-item-template.wxml" />
+<swiper catchtap='swinperTap' indicator-dots="true" indicator-active-color="#fff" autoplay="true" interval="5000">
   <swiper-item>
-    <image src='/images/wx_1.jpg'></image>
+    <image data-postindex="0" src='/images/wx_1.jpg'></image>
   </swiper-item>
   <swiper-item>
-    <image src='/images/wx_2.jpg'></image>
+    <image data-postindex="1" src='/images/wx_2.jpg'></image>
   </swiper-item>
   <swiper-item>
-    <image src='/images/wx_3.jpg'></image>
+    <image data-postindex="2" src='/images/wx_3.jpg'></image>
   </swiper-item>
 </swiper>
-<block wx:for="{{content_key}}" wx:for-item="item">
-  <view class='post-container'>
-    <view class='post-author-date'>
-      <image class='post-author' src='{{item.avater}}'></image>
-      <text class='post-date'>{{item.date}}</text>
-    </view>
-    <text class='post-title'>{{item.title}}</text>
-    <image class='post-image' src='{{item.image}}'></image>
-    <text class='post-content'>{{item.content}}</text>
-    <view class='post-like'>
-      <image class='post-like-image' src='/images/icon/icon_star.png'></image>
-      <text class='post-like-font'>{{item.star_num}}</text>
-      <image class='post-like-image' src='/images/icon/icon_eyes.png'></image>
-      <text class='post-like-font'>{{item.commont_num}}</text>
-    </view>
+<block wx:for="{{content_key}}" wx:for-item="item" wx:key="item.title" wx:for-index="index">
+  <view catchtap='toPostDetail' data-postindex="{{index}}">
+    <template is="postList" data="{{...item}}"></template>
   </view>
 </block>
