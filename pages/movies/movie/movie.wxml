@@ -1,9 +1,9 @@
 <import src="../stars/stars.wxml" />
 <template name="movie">
   <view class='movie-container'>
-  <image class='movie-img'></image>
-  <text class='movie-title'>saaasa</text>
-  <template is="star"></template>
+  <image class='movie-img' src="{{coverage}}"></image>
+  <text class='movie-title'>{{title}}</text>
+  <template is="star" data="{{scroe:scoreNum,stars: scoreStar}}"></template>
   </view>
 </template>  
 

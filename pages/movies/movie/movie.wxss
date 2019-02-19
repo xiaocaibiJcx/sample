@@ -2,12 +2,12 @@
 .movie-container {
   display: flex;
   flex-direction: column;
-  padding:  0 22rpx;
+  padding: 0rpx 10rpx;
 }
 .movie-img {
-  width: 200rpx;
-  height: 270rpx;
-  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  width: 228rpx;
+  height: 290rpx;
   background-color: #ececec;
 }
 .movie-title {

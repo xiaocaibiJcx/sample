@@ -1,13 +1,23 @@
 <import src="../movie/movie.wxml" />
 <template name="movie-list">
-<view>
-<view>
-  <text>正在热映</text>
-  <view>
-  <text>更多</text>
-  <image src='/images/icon/icon_right.png'></image>
+  <view class='movie-list-container'>
+    <view class='inner-container'>
+
+    
+      <view class='movie-head'>
+       <!-- <block wx:for="{{navTitleArr}}" wx:for-item="title" wx:key="title"> -->
+        <text class='slogan'>{{item.navTitle}}</text>
+        <view class='more'>
+          <text class='more-text'>更多</text>
+          <image class='more-img' src='/images/icon/icon_right.png'></image>
+        </view>
+      </view>
+      <!-- </block> -->
+      <view class='movies-container'>
+        <block wx:for="{{item.movies}}" wx:for-item="idx" wx:key="idx">
+         <template is="movie" data="{{...idx}}"></template>
+        </block> 
+      </view>
+    </view>
   </view>
-</view>
-<template is="movie"></template>
-</view>
 </template>

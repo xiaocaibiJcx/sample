@@ -1,12 +1,10 @@
 <template name="star">
   <view class='star-container'>
     <view class='stars'>
-      <image class='star-img' src='/images/icon/icon_star.png'></image>
-      <image class='star-img' src='/images/icon/icon_star.png'></image>
-      <image class='star-img' src='/images/icon/icon_star.png'></image>
-      <image class='star-img' src='/images/icon/icon_star.png'></image>
-      <image class='star-img' src='/images/icon/icon_star.png'></image>
+      <block wx:for="{{stars}}" wx:for-item="star" wx:key="star">
+        <image class='star-img' src="{{star?'/images/icon/icon_star.png' : '/images/icon/icon_unstar.png'}}"></image>
+      </block>
     </view>
-    <text class='star-score'>8.5</text>
+    <text class='star-score'>{{scroe}}</text>
   </view>
 </template>
