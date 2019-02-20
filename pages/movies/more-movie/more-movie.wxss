@@ -1,0 +1,2 @@
+@import "../movie/movie.wxss";
+@import "../group-movie/group-movie.wxss";

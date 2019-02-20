@@ -6,6 +6,20 @@ function setStars(stars) {
   }
   return arr;
 }
+function http(url, callback) {
+  wx.request({
+    url: url,
+    data: {},
+    method: 'GET',
+    header: {
+      "Content-Type": "json"
+    },
+    success(res) {
+      callback(res.data.subjects)
+    }
+  })
+}
 module.exports ={
-  setStars
+  setStars,
+  http
 }

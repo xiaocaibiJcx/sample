@@ -1,0 +1,4 @@
+<import src="../group-movie/group-movie.wxml" />
+<template is="group-movie" data="{{readyData}}">
+
+</template>

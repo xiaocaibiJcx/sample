@@ -7,7 +7,7 @@
       <view class='movie-head'>
        <!-- <block wx:for="{{navTitleArr}}" wx:for-item="title" wx:key="title"> -->
         <text class='slogan'>{{item.navTitle}}</text>
-        <view class='more'>
+        <view class='more' catchtap='onmoreMovie' data-title="{{item.navTitle}}">
           <text class='more-text'>更多</text>
           <image class='more-img' src='/images/icon/icon_right.png'></image>
         </view>

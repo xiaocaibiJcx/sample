@@ -67,7 +67,13 @@ Page({
     this.setData({
       readyData: this.data.moviesList,
     })
-   console.log(this.data.moviesList)
+  },
+  //跳转更多
+  onmoreMovie(e) {
+    let title = e.currentTarget.dataset.title
+    wx.navigateTo({
+      url: 'more-movie/more-movie?natigateTitle=' + title
+    })  
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

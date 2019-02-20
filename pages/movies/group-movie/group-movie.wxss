@@ -1,0 +1,10 @@
+@import "../movie/movie.wxss";
+.group-movie {
+  margin-top: 20rpx;
+  margin-left: 2rpx;
+  height: 1300rpx;
+}
+.group-movie-item {
+  float: left;
+  margin-bottom: 20rpx;
+}
