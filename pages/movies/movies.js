@@ -6,9 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    searchPage: false,
+    searchArr: [],
+    api: app.globalData.g_base,
     moviesList: [],
     navTitleArr: [],
-    api: app.globalData.g_base,
     inTheaTers: [],
     coming: [],
     hot: []
@@ -27,7 +29,7 @@ Page({
     this._getMovieData(comingUrl, 'coming','即将上映')
     this._getMovieData(hotUrl, 'hot', '豆瓣Top250')
   },
-  _getMovieData(url, key, navTitle) {
+  _getMovieData(url, key, navTitle,searchStatus) {
     let that = this
     wx.request({
       url: url,
@@ -37,14 +39,14 @@ Page({
         "Content-Type": "json"
       },
       success(res) {
-        that._formatData(res.data.subjects, key, navTitle)
+        that._formatData(res.data.subjects, key, navTitle,searchStatus)
       },
       fail(res) {
 
       },
     })
   },
-  _formatData(data, key,navTitle) {
+  _formatData(data, key,navTitle,searchStatus) {
     let movies = []
     for (let i in data) {
       let item = {
@@ -56,7 +58,12 @@ Page({
       }
       movies.push(item)
     }
-  
+    if (searchStatus) {
+      this.setData({
+        movie: movies
+      })
+      return
+    }
     // let readyData ={}
     this.data.moviesList.push({
       navTitle,
@@ -67,13 +74,40 @@ Page({
     this.setData({
       readyData: this.data.moviesList,
     })
+    
   },
   //跳转更多
   onmoreMovie(e) {
+    this.data.searchTitle = e.currentTarget.dataset.title
     let title = e.currentTarget.dataset.title
     wx.navigateTo({
       url: 'more-movie/more-movie?natigateTitle=' + title
     })  
+  },
+  // 搜索
+  onBindFocus(e) {
+    this.setData({
+      searchPage: true
+    })
+  },
+  // 搜索确定
+  onBindconFirm(e) {
+    let url = `${this.data.api}/v2/movie/search?q=${e.detail.value}` 
+    this._getMovieData(url, 'hot', '2', true)
+  },
+  // 关闭搜索
+  catchTapShut() {
+    this.setData({
+      searchPage: false,
+       movie: []
+    })
+  },
+  // 查看电影详情
+  tapMovieDetail(e) {
+    console.log()
+    wx.navigateTo({
+      url: `movie-detail/movie-detail?id=${e.currentTarget.dataset.movieid}`,
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

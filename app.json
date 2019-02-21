@@ -8,7 +8,8 @@
     "pages/movies/movie-list/movie-list",
     "pages/movies/movie/movie",
     "pages/movies/more-movie/more-movie",
-    "pages/movies/group-movie/group-movie"
+    "pages/movies/group-movie/group-movie",
+    "pages/movies/movie-detail/movie-detail"
   ],
   "tabBar": {
     "color": "#ccc",

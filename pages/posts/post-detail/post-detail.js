@@ -62,6 +62,13 @@ Page({
       appInstance.g_isPlayingMusic = false;
       appInstance.g_currntPostId = null;
     })
+    backgroundAudioManager.onEnded(() => {
+      that.setData({
+        isMusic: false
+      })
+      appInstance.g_isPlayingMusic = false;
+      appInstance.g_currntPostId = null;
+    })
   },
   onCollectionTap(event) {
     let postsCollectioned = wx.getStorageSync('collection_current')

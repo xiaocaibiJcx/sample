@@ -15,7 +15,7 @@ function http(url, callback) {
       "Content-Type": "json"
     },
     success(res) {
-      callback(res.data.subjects)
+      callback(res.data)
     }
   })
 }

@@ -1,9 +1,8 @@
 <import src="../stars/stars.wxml" />
 <template name="movie">
-  <view class='movie-container'>
-  <image class='movie-img' src="{{coverage}}"></image>
-  <text class='movie-title'>{{title}}</text>
-  <template is="star" data="{{scroe:scoreNum,stars: scoreStar}}"></template>
+  <view class='movie-container' catchtap='tapMovieDetail' data-movieId='{{movieId}}'>
+    <image class='movie-img' src="{{coverage}}"></image>
+    <text class='movie-title'>{{title}}</text>
+    <template is="star" data="{{scroe:scoreNum,stars: scoreStar}}"></template>
   </view>
-</template>  
-
+</template>

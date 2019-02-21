@@ -1,18 +1,21 @@
 const app = getApp()
-import {http,setStars} from '../../../utils/utils.js'
+import {
+  http,
+  setStars
+} from '../../../utils/utils.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pageNum:0,
+    pageNum: 0,
     api: app.globalData.g_base,
     moviesList: []
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面加载   
    */
   onLoad: function(options) {
     this.natigateTitle = options.natigateTitle
@@ -24,9 +27,10 @@ Page({
     http(data[options.natigateTitle], this._formatData)
     this.data.nextUrl = data[options.natigateTitle]
   },
-  _formatData(data) {
+  _formatData(data1) {
     let movies = []
-    for (let i in data) {
+    let data = data1.subjects
+    for (let i = 0; i < data.length; i++) {
       let item = {
         movieId: data[i].id,
         title: data[i].title.length >= 6 ? data[i].title.substring(0, 6) + '...' : data[i].title,
@@ -38,11 +42,11 @@ Page({
     }
 
     // let readyData ={}
-    this.data.moviesList = [...this.data.moviesList,...movies]
+    this.data.moviesList = [...this.data.moviesList, ...movies]
     this.setData({
       readyData: this.data.moviesList
     })
-    this.data.pageNum +=20
+    this.data.pageNum += 20
     wx.hideNavigationBarLoading()
     wx.stopPullDownRefresh()
   },
@@ -70,7 +74,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    
+
   },
 
   /**
@@ -105,6 +109,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-      console.log(1)
+    console.log(1)
   }
 })

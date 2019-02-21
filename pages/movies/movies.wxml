@@ -1,5 +1,11 @@
 <import src="movie-list/movie-list.wxml" />
-<view class='container'>
+<import src="movie/movie.wxml" />
+<view class='search'>
+  <icon type='search' class='search-img' size='13' color='#405f80'></icon>
+  <input type='text' placeholder='请输入内容' placeholder-class='placeholder' bindfocus='onBindFocus' bindconfirm="onBindconFirm"></input>
+  <image catchtap='catchTapShut' wx:if="{{searchPage}}" src='/images/icon/icon_shut.png' class='search-shut'></image>
+</view>
+<view class='container' wx:if="{{!searchPage}}">
   <!-- <view class='container-template'>
   <template is="movie-list" data="{{inTheaTers}}"></template>
   </view>
@@ -9,9 +15,16 @@
   <view class='container-template'>
   <template is="movie-list"></template>
   </view> -->
-    <block wx:for="{{readyData}}" wx:for-item="item" wx:key="item">
+  <block wx:for="{{readyData}}" wx:for-item="item" wx:key="item">
     <view class='container-template'>
       <template is="movie-list" data="{{item}}"></template>
+    </view>
+  </block>
+</view>
+<view class='search-movies' wx:else>
+  <block wx:for="{{movie}}" wx:for-item="item" wx:key="item">
+    <view class='movie-item'>
+      <template is="movie" data="{{...item}}"></template>
     </view>
   </block>
 </view>
