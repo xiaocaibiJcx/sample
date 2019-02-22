@@ -6,6 +6,15 @@ function setStars(stars) {
   }
   return arr;
 }
+
+function convertToCastString(casts) {
+  let castsjoin = '';
+  for (let idx in casts) {
+    castsjoin = castsjoin + casts[idx].name + ' / '
+  }
+  return castsjoin.substring(0, castsjoin.length - 2)
+}
+
 function http(url, callback) {
   wx.request({
     url: url,
@@ -19,7 +28,21 @@ function http(url, callback) {
     }
   })
 }
-module.exports ={
+
+function converToCastInfos(casts) {
+  let castsArray = []
+  casts.forEach((item) => {
+    let cast = {
+      img: item.avatars ? item.avatars.large : '',
+      name: item.name
+    }
+    castsArray.push(cast)
+  })
+  return castsArray
+}
+module.exports = {
   setStars,
-  http
+  http,
+  convertToCastString,
+  converToCastInfos
 }

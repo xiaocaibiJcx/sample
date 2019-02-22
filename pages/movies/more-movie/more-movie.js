@@ -13,7 +13,11 @@ Page({
     api: app.globalData.g_base,
     moviesList: []
   },
-
+  tapMovieDetail(e) {
+    wx.navigateTo({
+      url: `../movie-detail/movie-detail?id=${e.currentTarget.dataset.movieid}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载   
    */
@@ -58,6 +62,7 @@ Page({
   onPullDownRefresh() {
     this.data.moviesList = []
     let refreshUrl = `${this.data.nextUrl}?start=0&count=20`
+    this.data.pageNum = 0
     http(refreshUrl, this._formatData)
     wx.showNavigationBarLoading()
   },

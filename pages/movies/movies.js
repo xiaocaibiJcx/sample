@@ -104,7 +104,6 @@ Page({
   },
   // 查看电影详情
   tapMovieDetail(e) {
-    console.log()
     wx.navigateTo({
       url: `movie-detail/movie-detail?id=${e.currentTarget.dataset.movieid}`,
     })
